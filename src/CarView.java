@@ -53,7 +53,7 @@ public class CarView extends JFrame {
         SpinnerModel spinnerModel =
                 new SpinnerNumberModel(gasAmount, //initial value
                         0, //min
-                        100, //max
+                        50, //max
                         1);//step
         gasSpinner = new JSpinner(spinnerModel);
         gasSpinner.addChangeListener(e -> {

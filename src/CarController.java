@@ -22,6 +22,7 @@ public class CarController {
     ArrayList<Car> cars = new ArrayList<>();
 
     public void startTimer() {
+
         this.timer.start();
     }
 
@@ -30,19 +31,18 @@ public class CarController {
      */
     private class TimerListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-
-            for (Car car : cars) {
+            for (int i = 0; i < cars.size(); i++) {
+                Car car = cars.get(i);
                 car.move();
                 int x = (int) Math.round(car.getX());
                 int y = (int) Math.round(car.getY());
-                frame.drawPanel.moveit(x, y);
-                // repaint() calls the paintComponent method of the panel
-                frame.drawPanel.revalidate();
+                frame.drawPanel.moveit(i,x,y);
+            }
                 frame.drawPanel.repaint();
             }
 
         }
-    }
+
 
     void gas(int amount) {
         double gas = ((double) amount) / 100;

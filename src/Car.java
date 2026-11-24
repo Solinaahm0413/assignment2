@@ -136,5 +136,10 @@ public abstract class Car implements Movable {
     public double getX() {return x; }
     public double getY() {return y; }
 
+
+    public void setPosition(double x, double y) {
+        this.x = x;
+        this.y = y;
+    }
 }
 //hi
