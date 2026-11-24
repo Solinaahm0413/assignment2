@@ -1,9 +1,5 @@
 import javax.swing.*;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 /**
  * This class represents the full view of the MVC pattern of your car simulator.
@@ -29,12 +25,12 @@ public class CarView extends JFrame {
     int gasAmount = 50;
     JLabel gasLabel = new JLabel("Amount of gas");
 
-    JButton gasButton = new JButton("Gas");
-    JButton brakeButton = new JButton("Brake");
-    JButton leftButton = new JButton("← Turn left ←");
-    JButton rightButton = new JButton("→ Turn right →");
-    JButton turboOnButton = new JButton("Saab Turbo on");
-    JButton turboOffButton = new JButton("Saab Turbo off");
+    JButton gas = new JButton("Gas");
+    JButton brake = new JButton("Brake");
+    JButton turnLeft = new JButton("← Turn left ←");
+    JButton turnRight = new JButton("→ Turn right →");
+    JButton turboOn = new JButton("Saab Turbo on");
+    JButton turboOff = new JButton("Saab Turbo off");
 
     JButton startButton = new JButton("Start all cars");
     JButton stopButton = new JButton("Stop all cars");
@@ -72,12 +68,12 @@ public class CarView extends JFrame {
 
         controlPanel.setLayout(new GridLayout(2,4));
 
-        controlPanel.add(gasButton, 0);
-        controlPanel.add(turboOnButton, 1);
-        controlPanel.add(brakeButton, 2);
-        controlPanel.add(turboOffButton, 3);
-        controlPanel.add(leftButton, 4);
-        controlPanel.add(rightButton, 5);
+        controlPanel.add(gas, 0);
+        controlPanel.add(turboOn, 1);
+        controlPanel.add(brake, 2);
+        controlPanel.add(turboOff, 3);
+        controlPanel.add(turnLeft, 4);
+        controlPanel.add(turnRight, 5);
         controlPanel.setPreferredSize(new Dimension((X/2)+4, 200));
         this.add(controlPanel);
         controlPanel.setBackground(Color.CYAN);
@@ -95,8 +91,12 @@ public class CarView extends JFrame {
 
         // This actionListener is for the gas button only
         // TODO: Create more for each component as necessary
-        gasButton.addActionListener(e -> {
+        gas.addActionListener(e -> {
             carC.gas(gasAmount);
+        });
+
+        brake.addActionListener(e -> {
+            carC.brake(gasAmount);
         });
 
         // Make the panel layout more compact
