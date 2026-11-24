@@ -31,17 +31,34 @@ public class CarController {
      */
     private class TimerListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
+            int panelW = frame.drawPanel.getWidth();
+            int panelH = frame.drawPanel.getHeight();
+
             for (int i = 0; i < cars.size(); i++) {
                 Car car = cars.get(i);
                 car.move();
+
                 int x = (int) Math.round(car.getX());
                 int y = (int) Math.round(car.getY());
-                frame.drawPanel.moveit(i,x,y);
-            }
-                frame.drawPanel.repaint();
-            }
+                int w = frame.drawPanel.carImages.get(i).getWidth();
+                int h = frame.drawPanel.carImages.get(i).getHeight();
 
+                if (x < 0 || x + w > panelW || y < 0 || y + h > panelH) {
+                    car.stopEngine();
+                    car.invertDirection();
+
+                    x = Math.max(0, Math.min(x, panelW - w));
+                    y = Math.max(0, Math.min(y, panelH - h));
+                    car.setPosition(x, y);
+
+                    car.startEngine();
+                }
+
+                frame.drawPanel.moveit(i, x, y);
+            }
+            frame.drawPanel.repaint();
         }
+    }
 
 
     void gas(int amount) {
