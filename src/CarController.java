@@ -99,6 +99,22 @@ public class CarController {
             car.stopEngine();
         }
     }
+
+    void turboOn() {
+        for (Car car : cars) {
+            if (car instanceof Saab95 saab) {
+                saab.setTurboOn();
+            }
+        }
+    }
+
+    void turboOff() {
+        for (Car car : cars) {
+            if (car instanceof Saab95 saab) {
+                saab.setTurboOff();
+            }
+        }
+    }
 }
 
 
