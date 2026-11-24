@@ -32,8 +32,8 @@ public class CarView extends JFrame {
     JButton turboOn = new JButton("Saab Turbo on");
     JButton turboOff = new JButton("Saab Turbo off");
 
-    JButton startButton = new JButton("Start all cars");
-    JButton stopButton = new JButton("Stop all cars");
+    JButton startEngine = new JButton("Start all cars");
+    JButton stopEngine = new JButton("Stop all cars");
 
     // Constructor
     public CarView(String framename, CarController cc) {
@@ -79,15 +79,15 @@ public class CarView extends JFrame {
         controlPanel.setBackground(Color.CYAN);
 
 
-        startButton.setBackground(Color.blue);
-        startButton.setForeground(Color.green);
-        startButton.setPreferredSize(new Dimension(X/5-15,200));
-        this.add(startButton);
+        startEngine.setBackground(Color.blue);
+        startEngine.setForeground(Color.green);
+        startEngine.setPreferredSize(new Dimension(X/5-15,200));
+        this.add(startEngine);
 
-        stopButton.setBackground(Color.red);
-        stopButton.setForeground(Color.black);
-        stopButton.setPreferredSize(new Dimension(X/5-15,200));
-        this.add(stopButton);
+        stopEngine.setBackground(Color.red);
+        stopEngine.setForeground(Color.black);
+        stopEngine.setPreferredSize(new Dimension(X/5-15,200));
+        this.add(stopEngine);
 
         // This actionListener is for the gas button only
         // TODO: Create more for each component as necessary
@@ -98,6 +98,23 @@ public class CarView extends JFrame {
         brake.addActionListener(e -> {
             carC.brake(gasAmount);
         });
+
+        turnLeft.addActionListener(e -> {
+            carC.turnLeft();
+        });
+
+        turnRight.addActionListener(e -> {
+                    carC.turnRight();
+        });
+
+        startEngine.addActionListener(e -> {
+            carC.startEngine();
+        });
+
+        stopEngine.addActionListener(e -> {
+            carC.stopEngine();
+        });
+
 
         // Make the panel layout more compact
         this.pack();

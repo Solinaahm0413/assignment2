@@ -58,6 +58,30 @@ public class CarController {
             car.brake(brake);
         }
     }
+
+    void turnLeft() {
+        for (Car car : cars) {
+            car.turnLeft();
+        }
+    }
+
+    void turnRight() {
+        for (Car car : cars) {
+            car.turnRight();
+        }
+    }
+
+    void startEngine() {
+        for (Car car : cars) {
+            car.startEngine();
+        }
+    }
+
+    void stopEngine() {
+        for (Car car : cars) {
+            car.stopEngine();
+        }
+    }
 }
 
 
