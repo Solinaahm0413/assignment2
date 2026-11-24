@@ -141,5 +141,10 @@ public abstract class Car implements Movable {
         this.x = x;
         this.y = y;
     }
+
+    public void invertDirection() {
+        turnLeft();
+        turnLeft();
+    }
 }
 //hi
